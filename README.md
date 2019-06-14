@@ -1,7 +1,7 @@
 # GroveCo Challenge
 
-![Travis CI](https://travis-ci.org/stephen-bunn/groveco-challenge.svg?branch=master)
-![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)
+[![Build Status](https://travis-ci.com/stephen-bunn/groveco_challenge.svg?branch=master)](https://travis-ci.com/stephen-bunn/groveco_challenge)
+[![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
 
 This repository is a potential solution of the GroveCo coding challenge as found [here](https://github.com/groveco/code-challenge).
 This module is implemented 100% with Python and provides a tool to find a location close a given address or zipcode.
