@@ -9,8 +9,8 @@ from typing import Optional
 
 import click
 
+from . import constants
 from .finder import StoreFinder
-from .constants import STORE_LOCATIONS_PATH
 
 # contextual settings for the Click comand options
 CONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])
@@ -102,7 +102,7 @@ def cli(
         click.echo(cli.get_help(click.Context(cli)))
         sys.exit(1)
 
-    finder = StoreFinder(STORE_LOCATIONS_PATH, max_workers=max_workers)
+    finder = StoreFinder(constants.STORE_LOCATIONS_PATH, max_workers=max_workers)
     for store_result in finder.find_stores(
         query, metric=is_metric, actual=actual, results=results
     ):
