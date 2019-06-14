@@ -1,0 +1,8 @@
+[run]
+branch = True
+parallel = True
+source =
+    src/groveco_challenge/
+
+[report]
+show_missing = True
