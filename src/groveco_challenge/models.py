@@ -6,32 +6,32 @@
 
 import json
 
-import attr
+from file_config import config, var
 
 
-@attr.s(hash=True)
+@config(hash=True)
 class GeoLocation(object):
     """Represents basic lat, long coordinates."""
 
-    latitude: float = attr.ib()
-    longitude: float = attr.ib()
+    latitude = var(type=float)
+    longitude = var(type=float)
 
 
-@attr.s(hash=True)
+@config(hash=True)
 class Store(object):
     """Reresents a store location as parsed from the ``store-locations.csv`` file."""
 
-    name: str = attr.ib()
-    location: str = attr.ib()
-    address: str = attr.ib()
-    city: str = attr.ib()
-    state: str = attr.ib()
-    zipcode: str = attr.ib()
-    geolocation: GeoLocation = attr.ib()
-    county: str = attr.ib()
+    name = var(type=str)
+    location = var(type=str)
+    address = var(type=str)
+    city = var(type=str)
+    state = var(type=str)
+    zipcode = var(type=str)
+    geolocation = var(type=GeoLocation)
+    county = var(type=str)
 
 
-@attr.s(hash=True)
+@config(hash=True)
 class StoreResult(object):
     """Represents the result of determining closest stores.
 
@@ -40,9 +40,9 @@ class StoreResult(object):
     attribute is False, otherwise it is considered to be kilometers.
     """
 
-    store: Store = attr.ib()
-    metric: bool = attr.ib()
-    distance: float = attr.ib()
+    store = var(type=Store)
+    metric = var(type=bool)
+    distance = var(type=float)
 
     def to_text(self) -> str:
         """Build a human readable representation of the ``StoreResult`` object.
@@ -55,12 +55,3 @@ class StoreResult(object):
 {self.store.location}
 {self.store.address}, {self.store.city}, {self.store.state} {self.store.zipcode}
         """
-
-    def to_json(self) -> str:
-        """Build a machine-redable representation of the ``StoreResult`` object.
-
-        :return: A machine-redable represntation of the object
-        :rtype: str
-        """
-
-        return json.dumps(attr.asdict(self))

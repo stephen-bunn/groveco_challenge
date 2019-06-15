@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 groveco-challenge = {path = ".", editable = true, extras = ["test", "docs"]}
+file-config = {extras = ["lxml", "msgpack", "pyyaml", "tomlkit"],version = "*"}
 
 [dev-packages]
 twine = "*"

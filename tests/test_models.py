@@ -22,8 +22,8 @@ STORE_RESULT_TEXT_PATTERN = re.compile(
 
 
 @given(store_result())
-def test_to_json(store_result: StoreResult):
-    parsed = json.loads(store_result.to_json())
+def test_dumps_json(store_result: StoreResult):
+    parsed = json.loads(store_result.dumps_json())
     rebuilt_store = Store(
         geolocation=GeoLocation(**parsed["store"]["geolocation"]),
         **{

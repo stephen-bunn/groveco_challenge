@@ -42,9 +42,9 @@ CONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])
 )
 @click.option(
     "--output",
-    type=click.Choice(["text", "json"]),
+    type=click.Choice(["text", "json", "xml", "ini", "toml", "yaml"]),
     default="text",
-    help="Output in human-readable text, or in JSON (e.g. machine-readable)",
+    help="Output in human-readable 'text', or in other machine-readable formats.",
 )
 @click.option(
     "--max-workers",
@@ -80,7 +80,7 @@ def cli(
     """
 
     is_metric = units == "km"
-    is_json = output == "json"
+    is_text_output = output == "text"
 
     if isinstance(address, str) and isinstance(zipcode, str):
         click.echo(
@@ -106,10 +106,11 @@ def cli(
     for store_result in finder.find_stores(
         query, metric=is_metric, actual=actual, results=results
     ):
-        if is_json:
-            click.echo(store_result.to_json())
-        else:
+        if is_text_output:
             click.echo(store_result.to_text())
+        else:
+            dump_method = getattr(store_result, f"dumps_{output}")
+            click.echo(dump_method())
 
     sys.exit(0)
 
