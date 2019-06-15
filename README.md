@@ -4,7 +4,7 @@
 [![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
 
 This repository is a potential solution of the GroveCo coding challenge as found [here](https://github.com/groveco/code-challenge).
-This module is implemented 100% with Python and provides a tool to find a location close a given address or zipcode.
+This module is implemented 100% with Python and provides a tool to find a location close to a given address or zip code.
 
 ## Structure
 
@@ -19,7 +19,7 @@ Basically, these types are very lightweight classes with some custom functionali
 The underlying types used are the following:
 
 - `GeoLocation`
-  - Represents a basic geolocation using two fields `latitude` and `longitude`
+  - Represents basic geolocation using two fields `latitude` and `longitude`
 - `Store`
   - Represents an item straight from the parsed `store-locations.csv`
   - Summarizes the included `latitude` and `longitude` columns with the custom `GeoLocation` model
@@ -57,15 +57,15 @@ cd groveco_challenge
 pipenv install --dev
 ```
 
-> **IMPORTANT:** Since this tool needs to Geocode given addresses and zipcodes we use Google's geocoding service.
-> This means that in order for this tool to function correctly, you need to add an environment variable (either on the system or in a `.env` file) called `GOOGLE_API_KEY`.
+> **IMPORTANT:** Since this tool needs to Geocode given addresses and zip codes we use Google's geocoding service.
+> This means that for this tool to function correctly, you need to add an environment variable (either on the system or in a `.env` file) called `GOOGLE_API_KEY`.
 > This API key must (at least) have permissions to access [Google's Geocoding API](https://developers.google.com/maps/documentation/geocoding/start).
 
 ---
 
-After installing this package you can execute the tool using the name `groveco_challenge`.
+After installing this package, you can execute the tool using the name `groveco_challenge`.
 
-> Note that since we use `pipenv` as our development tool, you will need to run `pipenv run` before normal shell commands (to ensure you are executing commands in the Python virtual environment).
+> Note that since we use `pipenv` as our development tool, you will need to run `pipenv run` before typical shell commands (to ensure you are executing commands in the Python virtual environment).
 > For example, to view tool usage, run...
 
 ```console
@@ -106,7 +106,7 @@ Here is a quick video of example usage:
 
 ## Additional Features
 
-As some additional features, I threw in two diferent features that made sense for me to add.
+As some additional features, I threw in two different features that made sense for me to add.
 
 ##### Max Workers
 
